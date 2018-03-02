@@ -231,34 +231,11 @@ unzip(zipF,exdir=outDir)
 dtSubjectTrain &lt;- fread(file.path(path, &quot;UCI HAR Dataset/train&quot;, &quot;subject_train.txt&quot;))
 dtSubjectTest  &lt;- fread(file.path(path, &quot;UCI HAR Dataset/test&quot; , &quot;subject_test.txt&quot; ))
 
-# not how this data fits together
+# not knowing how this data fits together
 # checking col widhts and lengths to get some idea
 # looking for common dimensions
-summary(dtSubjectTest)
-</code></pre>
 
-<pre><code>##        V1       
-##  Min.   : 2.00  
-##  1st Qu.: 9.00  
-##  Median :12.00  
-##  Mean   :12.99  
-##  3rd Qu.:18.00  
-##  Max.   :24.00
-</code></pre>
-
-<pre><code class="r">summary(dtSubjectTrain)
-</code></pre>
-
-<pre><code>##        V1       
-##  Min.   : 1.00  
-##  1st Qu.: 8.00  
-##  Median :19.00  
-##  Mean   :17.41  
-##  3rd Qu.:26.00  
-##  Max.   :30.00
-</code></pre>
-
-<pre><code class="r">length(dtSubjectTest$V1)
+length(dtSubjectTest$V1)
 </code></pre>
 
 <pre><code>## [1] 2947
@@ -302,9 +279,11 @@ length(names(dtActivityYTest))
 
 <p>I visualize this as a gaint excel spreadsheet.  In that sense you can think of pasting the data from the files into the cells. The order doesn&#39;t really matter so long as you end up the following results.</p>
 
-<p>subjectTrain | activityTrain | Ytrain | Xtrain</p>
+<h2>subjectTrain | activityTrain | Ytrain | Xtrain</h2>
 
 <p>subjectTest  | activityTest | Ytest  | Xtest</p>
+
+<p>These names represent the content of files as one data table.</p>
 
 <p>The feature row number in the features.txt files corespond to the columns found in the X data files.
 The labels files numerically matches to the values in the activity column</p>
@@ -342,7 +321,7 @@ colnames(features)[1:2] &lt;- c(&quot;featureNum&quot;, &quot;featureName&quot;)
 
 <h2>merge in the feature and activity labels so that we can begin the tidy data process.</h2>
 
-<p>as described above we are relating the values in the feature and activity_labels file and inserting the text value names.  This way we can read more easily what the value is.  Another key step in this process is the melt command that transforms the data set so that every value that was in a column has it&#39;s own row.</p>
+<p>As described above we are relating the values in the feature and activity_labels file and inserting the text value names.  This way we can read more easily what the value is.  Another key step in this process is the melt command that transforms the data set so that every value that was in a column has it&#39;s own row.</p>
 
 <pre><code class="r"># regex to pulls out names with mean or std
 # the tick here is that featureNum lines up with column number of the data set

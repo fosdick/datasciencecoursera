@@ -34,37 +34,10 @@ For all the required files, import them into your environment as data tables.  Y
 dtSubjectTrain <- fread(file.path(path, "UCI HAR Dataset/train", "subject_train.txt"))
 dtSubjectTest  <- fread(file.path(path, "UCI HAR Dataset/test" , "subject_test.txt" ))
 
-# not how this data fits together
+# not knowing how this data fits together
 # checking col widhts and lengths to get some idea
 # looking for common dimensions
-summary(dtSubjectTest)
-```
 
-```
-##        V1       
-##  Min.   : 2.00  
-##  1st Qu.: 9.00  
-##  Median :12.00  
-##  Mean   :12.99  
-##  3rd Qu.:18.00  
-##  Max.   :24.00
-```
-
-```r
-summary(dtSubjectTrain)
-```
-
-```
-##        V1       
-##  Min.   : 1.00  
-##  1st Qu.: 8.00  
-##  Median :19.00  
-##  Mean   :17.41  
-##  3rd Qu.:26.00  
-##  Max.   :30.00
-```
-
-```r
 length(dtSubjectTest$V1)
 ```
 
@@ -119,8 +92,10 @@ length(dtActivityYTrain$V1)
 I visualize this as a gaint excel spreadsheet.  In that sense you can think of pasting the data from the files into the cells. The order doesn't really matter so long as you end up the following results.
 
 subjectTrain | activityTrain | Ytrain | Xtrain
-
+----
 subjectTest  | activityTest | Ytest  | Xtest
+
+These names represent the content of files as one data table.
 
 The feature row number in the features.txt files corespond to the columns found in the X data files.
 The labels files numerically matches to the values in the activity column
@@ -159,7 +134,7 @@ colnames(features)[1:2] <- c("featureNum", "featureName")
 ```
 ## merge in the feature and activity labels so that we can begin the tidy data process.
 
-as described above we are relating the values in the feature and activity_labels file and inserting the text value names.  This way we can read more easily what the value is.  Another key step in this process is the melt command that transforms the data set so that every value that was in a column has it's own row.
+As described above we are relating the values in the feature and activity_labels file and inserting the text value names.  This way we can read more easily what the value is.  Another key step in this process is the melt command that transforms the data set so that every value that was in a column has it's own row.
 
 
 ```r
