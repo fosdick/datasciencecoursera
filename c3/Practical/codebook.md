@@ -6,7 +6,7 @@ output: github_document
 
 
 ## To begin
-This script assumes you are in a working directory and the directory path c3/Practical already exists.  The script will create the data folder.
+Download the files and create a folder in the current directory call data if it does not exist
 
 
 ```r
@@ -23,6 +23,7 @@ zipF<- file.path(path, f)
 outDir <- file.path(getwd(),"data")
 unzip(zipF,exdir=outDir)
 ```
+
 ## Load all the files just downloaded
 
 For all the required files, import them into your environment as data tables.  You can think of these files as a set of rows and columns that all need to be combined.  Use the readme included in the downloaded files to learn more about what the data contains.
@@ -132,6 +133,7 @@ features  <- fread(file.path(path, "UCI HAR Dataset", "features.txt" ))
 # give helpful column names to the feature data table
 colnames(features)[1:2] <- c("featureNum", "featureName")
 ```
+
 ## merge in the feature and activity labels so that we can begin the tidy data process.
 
 As described above we are relating the values in the feature and activity_labels file and inserting the text value names.  This way we can read more easily what the value is.  Another key step in this process is the melt command that transforms the data set so that every value that was in a column has it's own row.
