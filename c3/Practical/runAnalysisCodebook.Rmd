@@ -112,7 +112,7 @@ as described above we are relating the values in the feature and activity_labels
 features <- features[grepl("mean\\(\\)|std\\(\\)", featureName)]
 # next we append the letter V to the row number value which matches the data set column names
 features$featureCode <- features[, paste0("V", featureNum)]
-str(dt)
+summary(dt)
 
 
 # convert the featureCode field to a Vector
@@ -120,7 +120,7 @@ select <- c(key(dt), features$featureCode)
 # use the vector to select from the data set the matching columns
 dt <- dt[, select, with=FALSE]
 # we now have only the measurements on the mean and standard deviation
-str(dt)
+summary(dt)
 # using the column label activityLabel we join the Descriptive names matching the numeric values
 dt <- merge(dt, activityLabels, by="activityLabel", all.x=TRUE)
 setkey(dt, subject, activityLabel, activityName)
