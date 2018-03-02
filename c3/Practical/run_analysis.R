@@ -1,5 +1,4 @@
-
-knit("c3/Practical/runAnalysisCodebook.Rmd", output="c3/Practical/codebook.md", encoding="ISO8859-1", quiet=TRUE)
-markdownToHTML("c3/Practical/codebook.md", "c3/Practical/codebook.html")
-
-
+## opens the Rmd file and makes the code book.
+## Rmd file is R markdown
+knit("runAnalysisCodebook.Rmd", output="codebook.md", encoding="ISO8859-1", quiet=TRUE)
+markdownToHTML("codebook.md", "codebook.html")
