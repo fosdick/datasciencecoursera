@@ -5,6 +5,9 @@ output: github_document
 
 
 
+# Overview of Code
+#### notice code comments provide additional information.
+
 ## To begin
 Download the files and create a folder in the current directory call data if it does not exist
 
@@ -93,10 +96,9 @@ length(dtActivityYTrain$V1)
 I visualize this as a gaint excel spreadsheet.  In that sense you can think of pasting the data from the files into the cells. The order doesn't really matter so long as you end up the following results.
 
 subjectTrain | activityTrain | Ytrain | Xtrain
-----
 subjectTest  | activityTest | Ytest  | Xtest
 
-These names represent the content of files as one data table.
+These names represent the content of files as one data table.  These representative names make more sense if you look closely at the file names in the downloaded data set.
 
 The feature row number in the features.txt files corespond to the columns found in the X data files.
 The labels files numerically matches to the values in the activity column
