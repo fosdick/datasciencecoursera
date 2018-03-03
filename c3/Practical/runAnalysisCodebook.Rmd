@@ -213,6 +213,6 @@ Tidy <- dt[, list(count = .N, average = mean(value)), by=key(dt)]
 # the result is a table with a tidy data set?
 summary(Tidy)
 # write the tidy data set to a file
-write.csv(Tidy, "tidy.csv", row.names=FALSE)
+write.table(dtTidy, 'tidy.txt', quote=FALSE, sep="\t", row.names=FALSE)
 
 ```

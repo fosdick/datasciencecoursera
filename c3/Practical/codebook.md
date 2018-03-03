@@ -715,5 +715,5 @@ summary(Tidy)
 
 ```r
 # write the tidy data set to a file
-write.csv(Tidy, "tidy.csv", row.names=FALSE)
+write.table(dtTidy, 'tidy.txt', quote=FALSE, sep="\t", row.names=FALSE)
 ```

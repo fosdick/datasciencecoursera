@@ -887,7 +887,7 @@ summary(Tidy)
 </code></pre>
 
 <pre><code class="r"># write the tidy data set to a file
-write.csv(Tidy, &quot;tidy.csv&quot;, row.names=FALSE)
+write.table(dtTidy, &#39;tidy.txt&#39;, quote=FALSE, sep=&quot;\t&quot;, row.names=FALSE)
 </code></pre>
 
 </body>
