@@ -8,8 +8,8 @@ library('httr')
 oauth_endpoints("github")
 
 myapp <- oauth_app("github",
-                   "ce68c47faeee04ed294b",
-                   secret = "00d52e2233eceac7e546ed5a5120b213a60af033")
+                   "",
+                   secret = "")
 
 
 gtoken <- config(token = github_token)
@@ -34,10 +34,10 @@ gitDF
 
 
 
-BROWSE("https://api.github.com/users/ppant/repos",authenticate("0cfaca69206007e7c161a1c4ab5e55205c4345ab","x-oauth-basic","basic"))
+BROWSE("https://api.github.com/users/ppant/repos",authenticate("","x-oauth-basic","basic"))
 
 # OR:
-gtoken <- "0cfaca69206007e7c161a1c4ab5e55205c4345ab"
+gtoken <- ""
 req <- with_config(gtoken, GET("https://api.github.com/users/ppant/repos"))
 
 stop_for_status(req)
@@ -51,7 +51,7 @@ content(req)
 ####
 ####   THIS IS WHAT WORKED
 
-git = handle("https://api.github.com/?access_token=0cfaca69206007e7c161a1c4ab5e55205c4345ab")
+git = handle("https://api.github.com/?access_token=")
 pg1 = GET(handle=git, path="users/jtleek/repos")
 json1 = content(pg1)
 
@@ -65,7 +65,7 @@ gitDF[gitDF$name == "datasharing",]$created_at
 install.packages("sqldf")
 library(sqldf)
 acs = read.csv("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv")
-sqldf("select pwgtp1 from acs where AGEP < 50", user="jarvisfosdick", password="Luckyshell#3")
+sqldf("select pwgtp1 from acs where AGEP < 50", user="jarvisfosdick", password="****Shellman3")
 
 
 con = url("http://biostat.jhsph.edu/~jleek/contact.html")
